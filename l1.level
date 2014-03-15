@@ -1,5 +1,4 @@
-Dot=0,-250
-Dot=0,-600
-Dot=100,-900
-Goal=100,-1200
-startScore=1000
+Dot=-16,-250
+Goal=-64,-400
+startScore=50
+levelHint=WASD, Space

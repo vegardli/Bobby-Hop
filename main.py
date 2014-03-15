@@ -8,7 +8,7 @@ screen = 0
 
 camera = [0,0]
 
-levelList = ["test.level", "l1.level", "l2.level"]
+levelList = ["l1.level", "l2.level"]
 currentLevel = 0
 score = 0
 totalScore = 0
@@ -206,6 +206,11 @@ def loadMap(filename):
 			elif lhs == "startScore":
 				score = int(rhs)
 
+			elif lhs == "levelHint":
+				screen.fill((0,0,0))
+				display_splash(rhs)
+				time.sleep(2)
+
 	fil.close()
 
 def unloadMap():
@@ -238,6 +243,7 @@ def nextLevel():
 
 	if currentLevel+1 > len(levelList):
 		display_splash("You won the game!", "Total score: " + str(totalScore))
+		pygame.mixer.music.fadeout(5000)
 		time.sleep(5)
 		pygame.event.post(pygame.event.Event(QUIT))
 
