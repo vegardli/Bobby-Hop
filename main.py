@@ -148,7 +148,7 @@ def findNearestDot(x,y):
 	global objs
 
 	nearestLength = sys.maxint
-	nearest = 0
+	nearest = None
 
 	for i in range(len(objs)):
 		if not isinstance(objs[i], Dot):
@@ -344,7 +344,7 @@ while True:
 
 				else:
 					dot = findNearestDot(objs[0].x, objs[0].y)
-					if findDistance(dot, objs[0]) < attachLength:
+					if dot != None and findDistance(dot, objs[0]) < attachLength:
 						objs[0].attach(dot)
 
 		elif event.type == KEYUP:
