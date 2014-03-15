@@ -230,7 +230,7 @@ def checkForFinish():
 			nextLevel()
 
 def nextLevel():
-	global currentLevel, levelList, score, totalScore
+	global currentLevel, levelList, score, totalScore, success
 
 	currentLevel += 1
 
@@ -244,7 +244,12 @@ def nextLevel():
 	else:
 		display_splash("Congratulations! Loading level " + str(currentLevel+1), "Level score: " + str(score))
 		loadMap(levelList[currentLevel])
+
+		pygame.mixer.music.set_volume(0.7)
+		success.play()
+
 		time.sleep(1)
+		pygame.mixer.music.set_volume(1.0)
 
 
 def display_splash(string, string2 = False):
@@ -278,9 +283,13 @@ clock = pygame.time.Clock()
 font = pygame.font.SysFont("monospace", 72)
 font2 = pygame.font.SysFont("monospace", 48)
 font3 = pygame.font.SysFont("monospace", 22)
+
 # Music courtesy of Eric Skiff: http://ericskiff.com/music/
 pygame.mixer.music.load("07 We're the Resistors.wav")
 pygame.mixer.music.play(-1)
+
+# Sound effect by grunz on Freesound: https://www.freesound.org/people/grunz/sounds/109663/
+success = pygame.mixer.Sound("109663__grunz__success-low.wav")
 
 
 vInfo = pygame.display.Info()
