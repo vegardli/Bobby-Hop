@@ -8,7 +8,7 @@ screen = 0
 
 camera = [0,0]
 
-levelList = ["l1.level", "l2.level"]
+levelList = ["l1.level", "l2.level", "l3.level"]
 currentLevel = 0
 score = 0
 totalScore = 0
@@ -208,7 +208,12 @@ def loadMap(filename):
 
 			elif lhs == "levelHint":
 				screen.fill((0,0,0))
-				display_splash(rhs)
+				if len(rhs.split(",")) == 1:
+					display_splash(rhs)
+
+				else:
+					display_splash(rhs.split(",")[0], rhs.split(",")[1])
+
 				time.sleep(2)
 
 	fil.close()
