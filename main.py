@@ -280,7 +280,7 @@ font2 = pygame.font.SysFont("monospace", 48)
 font3 = pygame.font.SysFont("monospace", 22)
 # Music courtesy of Eric Skiff: http://ericskiff.com/music/
 pygame.mixer.music.load("07 We're the Resistors.wav")
-pygame.mixer.music.play()
+pygame.mixer.music.play(-1)
 
 
 vInfo = pygame.display.Info()
