@@ -43,6 +43,9 @@ class Drawable:
 	def draw(self):
 		screen.blit(self.image, (self.x - camera[0], self.y - camera[1]))
 
+	def update(self):
+		pass
+
 
 class Player(Drawable):
 	def __init__(self):
@@ -322,8 +325,6 @@ loadMap(levelList[currentLevel])
 while True:
 	screen.fill((100,100,100))
 
-	objs[0].update()
-
 	checkForFinish()
 	displayScore()
 
@@ -339,6 +340,7 @@ while True:
 
 	for obj in objs:
 		obj.draw()
+		obj.update()
 
 	for event in pygame.event.get():
 		if event.type == QUIT:
