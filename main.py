@@ -208,11 +208,11 @@ def loadMap(filename):
 
 			elif lhs == "levelHint":
 				screen.fill((0,0,0))
-				if len(rhs.split(",")) == 1:
+				if len(rhs.split("|")) == 1:
 					display_splash(rhs)
 
 				else:
-					display_splash(rhs.split(",")[0], rhs.split(",")[1])
+					display_splash(rhs.split("|")[0], rhs.split("|")[1])
 
 				time.sleep(2)
 
@@ -254,13 +254,14 @@ def nextLevel():
 
 	else:
 		display_splash("Congratulations! Loading level " + str(currentLevel+1), "Level score: " + str(score))
-		loadMap(levelList[currentLevel])
 
 		pygame.mixer.music.set_volume(0.7)
 		success.play()
 
 		time.sleep(1)
 		pygame.mixer.music.set_volume(1.0)
+
+		loadMap(levelList[currentLevel])
 
 
 def display_splash(string, string2 = False):
@@ -304,6 +305,8 @@ pygame.mixer.music.play(-1)
 
 # Sound effect by grunz on Freesound: https://www.freesound.org/people/grunz/sounds/109663/
 success = pygame.mixer.Sound("109663__grunz__success-low.wav")
+
+pygame.mouse.set_visible(False)
 
 
 vInfo = pygame.display.Info()
