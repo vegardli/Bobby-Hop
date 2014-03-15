@@ -280,6 +280,9 @@ def displayScore():
 	text = font3.render("Score: " + str(score), 1, (200,200,200))
 	screen.blit(text, (0, 0))
 
+if len(sys.argv) == 2:
+	currentLevel = int(sys.argv[1])
+
 
 objs = []
 goals = []
