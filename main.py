@@ -8,7 +8,7 @@ screen = 0
 
 camera = [0,0]
 
-levelList = ["l1.level", "l2.level", "l3.level"]
+levelList = ["l1.level", "l2.level", "l3.level", "l4.level", "l5.level"]
 currentLevel = 0
 score = 0
 totalScore = 0
